@@ -42,6 +42,9 @@ class Foaas extends GuzzleClient
      * @return \Foaas\Response
      */
     protected function call($action, $from, $name = null) {
+        $action = rawurlencode($action);
+        $from = rawurlencode($from);
+        $name = rawurlencode($name);
         $path = (is_null($action) ? '' : "/{$action}") . (is_null($name) ? '' : "/{$name}") . "/{$from}";
 
         try {
