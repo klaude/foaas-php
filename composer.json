@@ -1,0 +1,26 @@
+{
+    "name": "klaude/foaas",
+    "type": "library",
+    "description": "A Fuck Off As A Service client.",
+    "keywords": ["foaas"],
+    "homepage": "https://github.com/klaude/foaas-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Laude",
+            "email": "nerfyoda@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzle/guzzle": "3.7.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Foaas\\Tests": "tests/",
+            "Foaas": "src/"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+# Common files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editors
+*.sublime-project
+*.sublime-workspace
+.project
+.metadata
+.buildpath
+.idea/
+.settings/
+
+# vim
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+# Composer
+composer.phar
+composer.lock
+vendor/
+
+# Unit tests
+phpunit.xml
+build/
