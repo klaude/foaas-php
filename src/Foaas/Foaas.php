@@ -48,7 +48,7 @@ class Foaas extends GuzzleClient
             $response = $this->get($path)->send()->json();
             return new Response($response['message'], $response['subtitle']);
         } catch (\Exception $e) {
-            Exception::factory($e);
+            throw new Exception($e->getMessage(), $e->getCode());
         }
     }
 
