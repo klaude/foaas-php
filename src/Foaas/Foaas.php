@@ -42,16 +42,14 @@ class Foaas extends GuzzleClient
      * @return \Foaas\Response
      */
     protected function call($action, $from, $name = null) {
-        $response = array();
         $path = (is_null($action) ? '' : "/{$action}") . (is_null($name) ? '' : "/{$name}") . "/{$from}";
 
         try {
             $response = $this->get($path)->send()->json();
+            return new Response($response['message'], $response['subtitle']);
         } catch (\Exception $e) {
             Exception::factory($e);
         }
-
-        return new Response($response['message'], $response['subtitle']);
     }
 
     /**
