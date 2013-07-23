@@ -16,46 +16,51 @@ It's easy as fuck. Just make a `Foaas\Foaas` object and fucking go nuts.
     $fuck = new Foaas\Foaas;
 
     // "Fuck off, Joker. - Batman"
-    echo $fuck->off('Joker', 'Batman') . "\n";
+    echo $fuck->off('Joker', 'Batman');
 
     // "Fuck you, Harpo. - Groucho"
-    echo $fuck->you('Harpo', 'Groucho') . "\n";
+    echo $fuck->you('Harpo', 'Groucho');
 
     // "Fuck that. - Moses"
-    echo $fuck->that('Moses') . "\n";
+    echo $fuck->that('Moses');
 
     // "Fuck this. - Jesus H. Christ"
-    echo $fuck->this('Jesus H. Christ') . "\n";
+    echo $fuck->this('Jesus H. Christ');
 
     // "Fuck everything. - John F. Kennedy"
-    echo $fuck->everything('John F. Kennedy') . "\n";
+    echo $fuck->everything('John F. Kennedy');
 
     // "Everyone can go and fuck off. - Bumblebee"
-    echo $fuck->everyone('Bumblebee') . "\n";
+    echo $fuck->everyone('Bumblebee');
 
     // "Hillary, go and take a flying fuck at a rolling donut. - Bill"
-    echo $fuck->donut('Hillary', 'Bill') . "\n";
+    echo $fuck->donut('Hillary', 'Bill');
 
-    // "Wolverine, Thou clay-brained guts, thou knotty-pated fool, thou whoreson obscene greasy tallow-catch! - Professor X"
-    echo $fuck->shakespeare('Wolverine', 'Professor X') . "\n";
+    // "Wolverine, Thou clay-brained guts, thou knotty-pated fool, thou whoreson
+    // obscene greasy tallow-catch! - Professor X"
+    echo $fuck->shakespeare('Wolverine', 'Professor X');
 
-    // "Lucy, there aren't enough swear-words in the English language, so now I'll have to call you perkeleen vittupää just to express my disgust and frustration with this crap. - Charlie Brown"
-    echo $fuck->linus('Lucy', 'Charlie Brown') . "\n";
+    // "Lucy, there aren't enough swear-words in the English language, so now
+    // I'll have to call you perkeleen vittupää just to express my disgust and
+    // frustration with this crap. - Charlie Brown"
+    echo $fuck->linus('Lucy', 'Charlie Brown');
 
-    // "Oh fuck off, just really fuck off you total dickface. Christ Lucy, you are fucking thick. - Ricki"
-    echo $fuck->king('Lucy', 'Ricki') . "\n";
+    // "Oh fuck off, just really fuck off you total dickface. Christ Lucy, you
+    // are fucking thick. - Ricki"
+    echo $fuck->king('Lucy', 'Ricki');
 
     // "Well fuck me pink. - Simba"
-    echo $fuck->pink('Simba') . "\n";
+    echo $fuck->pink('Simba');
 
     // "Fuck my life. - Gandhi"
-    echo $fuck->life('Gandhi') . "\n";
+    echo $fuck->life('Gandhi');
 
-    // "Fuck me gently with a chainsaw, Jim. Do I look like Mother Teresa? - Dr. McCoy"
-    echo $fuck->chainsaw('Jim', 'Dr. McCoy') . "\n";
+    // "Fuck me gently with a chainsaw, Jim. Do I look like Mother Teresa? - Dr.
+    // McCoy"
+    echo $fuck->chainsaw('Jim', 'Dr. McCoy');
 
     // "Fuck you very much. - Abraham Lincoln"
-    echo $fuck->thanks('Abraham Lincoln') . "\n";
+    echo $fuck->thanks('Abraham Lincoln');
 
     // "Fuck clowns." Seriously. Clowns are creepy.
     // This example only retrieves the FOAAS message response, not the subtitle.
