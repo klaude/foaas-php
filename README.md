@@ -3,6 +3,8 @@ Call Fuck Off As A Service in PHP
 
 Were you looking to leverage the cloud to tell someone to fuck themselves? Do you need to do it from PHP? Well fuck me! Look no further!
 
+This library automates calls to [FOAAS](https://foaas.herokuapp.com/) (which is probably the best web service ever). I make no claims of ownership of FOAAS or to it's availability. What the fuck do you want from me?
+
 Installation
 ------------
 I hope to have this up in packagist once I have the fucking niceties in place in the project. Until then git clone this fucker and put it into your fucking project yourself.
