@@ -11,7 +11,7 @@ I hope to have this up in packagist once I have the fucking niceties in place in
 
 Usage
 -----
-It's easy as fuck. Just make a `Foass\Foass` object and fucking go nuts.
+It's easy as fuck. Just make a `Foaas\Foaas` object and fucking go nuts.
 
     $fuck = new Foaas\Foaas;
 
