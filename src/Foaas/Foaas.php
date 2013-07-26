@@ -2,7 +2,7 @@
 
 namespace Foaas;
 
-use Guzzle\Http\Client as GuzzleClient;
+use Guzzle\Service\Client as GuzzleClient;
 
 /**
  * Fuck off as a Service.
