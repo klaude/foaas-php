@@ -164,4 +164,17 @@ class FoaasTest extends GuzzleTestCase
         $this->assertEquals('Fuck clowns.', $fuckSomething->message);
         $this->assertEquals("- {$this->testFrom}", $fuckSomething->subtitle);
     }
+
+    public function testCanCheckForAFuckingProblem()
+    {
+        // HTML responses generate an exception, as Foaas\Foaas expects JSON.
+        $this->setMockResponse($this->foaas, "{$this->mockPath}/__not-json");
+
+        try {
+            $fuckErrors = $this->foaas->__something('clowns', $this->testFrom);
+        } catch (\Exception $e) {
+            $this->assertInstanceOf('Foaas\\Exception', $e);
+            $this->assertStringStartsWith('Oh fuck.', $e->getMessage());
+        }
+    }
 }

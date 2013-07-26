@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Server: cloudflare-nginx
+Date: Fri, 26 Jul 2013 03:01:51 GMT
+Content-Type: text/html; charset=UTF-8
+Vary: Accept
+
+<html>
+  <head>
+    <title>I'm not JSON</title>
+  </head>
+
+  <body>
+    I'm HTML! Not JSON!
+  </body>
+</html>
