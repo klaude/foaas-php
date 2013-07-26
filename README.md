@@ -7,7 +7,17 @@ This library automates calls to [FOAAS](https://foaas.herokuapp.com/) (which is 
 
 Installation
 ------------
-I hope to have this up in packagist once I have the fucking niceties in place in the project. Until then git clone this fucker and put it into your fucking project yourself.
+Use [Composer](http://getcomposer.org/)!
+
+Add `"klaude/foaas": "dev-master"` to your project's `composer.json` file's require section:
+
+    {
+        "require": {
+            "klaude/foaas": "dev-master"
+        }
+    }
+
+Next, add `require_once __DIR__ . '/vendor/autoload.php';` (replacing `__DIR__` with wherever your project's root is if you need to) to the beginning of your fucking script, then boom!
 
 Usage
 -----
