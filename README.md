@@ -72,6 +72,13 @@ It's easy as fuck. Just make a `Foaas\Foaas` object and fucking go nuts.
     // "Fuck you very much. - Abraham Lincoln"
     echo $fuck->thanks('Abraham Lincoln');
 
+    // "I don't give a flying fuck. - Barack Obama"
+    echo $fuck->flying('Barack Obama') . "\n";
+
+    // "Fascinating story, in what chapter do you shut the fuck up? - Marie
+    // Curie"
+    echo $fuck->fascinating('Marie Curie') . "\n";
+
     // "Fuck clowns." Seriously. Clowns are creepy.
     // This example only retrieves the FOAAS message response, not the subtitle.
     echo $fuck->__something('clowns', 'me')->message;

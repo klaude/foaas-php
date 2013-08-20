@@ -177,4 +177,22 @@ class FoaasTest extends GuzzleTestCase
             $this->assertStringStartsWith('Oh fuck.', $e->getMessage());
         }
     }
+
+    public function testGiveAFlyingFuck()
+    {
+        $this->setMockResponse($this->foaas, "{$this->mockPath}/flying");
+        $fuckFlying = $this->foaas->flying($this->testFrom);
+
+        $this->assertEquals("I don't give a flying fuck.", $fuckFlying->message);
+        $this->assertEquals("- {$this->testFrom}", $fuckFlying->subtitle);
+    }
+
+    public function testTellMeAFascinatingFuckingStory()
+    {
+        $this->setMockResponse($this->foaas, "{$this->mockPath}/fascinating");
+        $fuckFascinating = $this->foaas->fascinating($this->testFrom);
+
+        $this->assertEquals('Fascinating story, in what chapter do you shut the fuck up?.', $fuckFascinating->message);
+        $this->assertEquals("- {$this->testFrom}", $fuckFascinating->subtitle);
+    }
 }

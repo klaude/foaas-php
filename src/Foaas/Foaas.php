@@ -231,4 +231,26 @@ class Foaas extends GuzzleClient
     {
         return $this->call($something, $from);
     }
+
+    /**
+     * I don't give a flying fuck.
+     *
+     * @param string $from
+     * @return \Foaas\Response
+     */
+    public function flying($from)
+    {
+        return $this->call('flying', $from);
+    }
+
+    /**
+     * Fascinating story, in what chapter do you shut the fuck up?.
+     *
+     * @param string $from
+     * @return \Foaas\Response
+     */
+    public function fascinating($from)
+    {
+        return $this->call('fascinating', $from);
+    }
 }
