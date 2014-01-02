@@ -1,5 +1,6 @@
 Call Fuck Off As A Service in PHP
 =================================
+[![Build Status](https://travis-ci.org/klaude/foaas-php.png)](https://travis-ci.org/klaude/foaas-php)
 
 Were you looking to leverage the cloud to tell someone to fuck themselves? Do you need to do it from PHP? Well fuck me! Look no further!
 
