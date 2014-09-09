@@ -77,17 +77,17 @@ echo $fuck->chainsaw('Jim', 'Dr. McCoy');
 echo $fuck->thanks('Abraham Lincoln');
 
 // "I don't give a flying fuck. - Barack Obama"
-echo $fuck->flying('Barack Obama') . "\n";
+echo $fuck->flying('Barack Obama');
 
 // "Fascinating story, in what chapter do you shut the fuck up? - Marie Curie"
-echo $fuck->fascinating('Marie Curie') . "\n";
+echo $fuck->fascinating('Marie Curie');
 
 // "What you've just said is one of the most insanely idiotic things I have
 // ever heard, Doctor. At no point in your rambling, incoherent response were
 // you even close to anything that could be considered a rational thought.
 // Everyone in this room is now dumber for having listened to it. I award you
 // no points Doctor, and may God have mercy on your soul. - Rose"
-echo $fuck->madison('Doctor', 'Rose') . "\n"
+echo $fuck->madison('Doctor', 'Rose');
 
 // "Fuck clowns." Seriously. Clowns are creepy.
 // This example only retrieves the FOAAS message response, not the subtitle.
