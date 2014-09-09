@@ -20,13 +20,13 @@ class Foaas extends GuzzleClient
      */
     public function __construct()
     {
-        parent::__construct('https://foaas.herokuapp.com/', array(
-            'request.options' => array(
-                'headers' => array(
+        parent::__construct('https://foaas.herokuapp.com/', [
+            'request.options' => [
+                'headers' => [
                     'Accept' => 'application/json',
-                ),
-            ),
-        ));
+                ],
+            ],
+        ]);
     }
 
     /**
