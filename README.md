@@ -82,6 +82,13 @@ echo $fuck->flying('Barack Obama') . "\n";
 // "Fascinating story, in what chapter do you shut the fuck up? - Marie Curie"
 echo $fuck->fascinating('Marie Curie') . "\n";
 
+// "What you've just said is one of the most insanely idiotic things I have
+// ever heard, Doctor. At no point in your rambling, incoherent response were
+// you even close to anything that could be considered a rational thought.
+// Everyone in this room is now dumber for having listened to it. I award you
+// no points Doctor, and may God have mercy on your soul. - Rose"
+echo $fuck->madison('Doctor', 'Rose') . "\n"
+
 // "Fuck clowns." Seriously. Clowns are creepy.
 // This example only retrieves the FOAAS message response, not the subtitle.
 echo $fuck->__something('clowns', 'me')->message;

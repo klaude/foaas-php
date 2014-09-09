@@ -36,6 +36,7 @@ class Foaas extends GuzzleClient
      * to make the calling code a little easier when no name is present. And
      * because I fucking feel like it.
      *
+     * @throws Exception if FOAAS is giving us shit.
      * @param string $action
      * @param string $from
      * @param string $name
@@ -252,5 +253,21 @@ class Foaas extends GuzzleClient
     public function fascinating($from)
     {
         return $this->call('fascinating', $from);
+    }
+
+    /**
+     * What you've just said is one of the most insanely idiotic things I have
+     * ever heard. At no point in your rambling, incoherent response were you
+     * even close to anything that could be considered a rational thought.
+     * Everyone in this room is now dumber for having listened to it. I award
+     * you no points, and may God have mercy on your soul.
+     *
+     * @param string $name
+     * @param string $from
+     * @return \Foaas\Response
+     */
+    public function madison($name, $from)
+    {
+        return $this->call('madison', $from, $name);
     }
 }

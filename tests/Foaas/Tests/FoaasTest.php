@@ -195,4 +195,13 @@ class FoaasTest extends GuzzleTestCase
         $this->assertEquals('Fascinating story, in what chapter do you shut the fuck up?.', $fuckFascinating->message);
         $this->assertEquals("- {$this->testFrom}", $fuckFascinating->subtitle);
     }
+
+    public function testQuoteMeSomeFuckingBillyMadison()
+    {
+        $this->setMockResponse($this->foaas, "{$this->mockPath}/madison");
+        $fuckMadison = $this->foaas->madison($this->testName, $this->testFrom);
+
+        $this->assertEquals("What you've just said is one of the most insanely idiotic things I have ever heard, {$this->testName}. At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone in this room is now dumber for having listened to it. I award you no points {$this->testName}, and may God have mercy on your soul.", $fuckMadison->message);
+        $this->assertEquals("- {$this->testFrom}", $fuckMadison->subtitle);
+    }
 }

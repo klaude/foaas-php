@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+Server: cloudflare-nginx
+Date: Fri, 26 Jul 2013 03:01:51 GMT
+Content-Type: application/json
+Vary: Accept
+
+{"message":"What you've just said is one of the most insanely idiotic things I have ever heard, name. At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone in this room is now dumber for having listened to it. I award you no points name, and may God have mercy on your soul.","subtitle":"- from"}
