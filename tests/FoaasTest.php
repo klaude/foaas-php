@@ -21,7 +21,7 @@ class FoaasTest extends GuzzleTestCase
 
     public function setUp()
     {
-        $this->mockPath = dirname(dirname(__DIR__)) . '/mock';
+        $this->mockPath = __DIR__ . '/mock';
         $this->foaas = new Foaas;
     }
 

@@ -18,9 +18,13 @@
         "phpunit/phpunit": "@stable"
     },
     "autoload": {
-        "psr-0": {
-            "Foaas\\Tests": "tests/",
-            "Foaas": "src/"
+        "psr-4": {
+            "Foaas\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Foaas\\Tests\\": "tests/"
         }
     }
 }
