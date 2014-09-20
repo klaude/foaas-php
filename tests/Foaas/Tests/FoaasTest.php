@@ -7,9 +7,16 @@ use Foaas\Foaas;
 
 class FoaasTest extends GuzzleTestCase
 {
+    /** @type string */
     protected $mockPath;
+
+    /** @type Foaas */
     protected $foaas;
+
+    /** @type string */
     protected $testName = 'name';
+
+    /** @type string */
     protected $testFrom = 'from';
 
     public function setUp()
@@ -171,7 +178,7 @@ class FoaasTest extends GuzzleTestCase
         $this->setMockResponse($this->foaas, "{$this->mockPath}/__not-json");
 
         try {
-            $fuckErrors = $this->foaas->__something('clowns', $this->testFrom);
+            $this->foaas->__something('clowns', $this->testFrom);
         } catch (\Exception $e) {
             $this->assertInstanceOf('Foaas\\Exception', $e);
             $this->assertStringStartsWith('Oh fuck.', $e->getMessage());
