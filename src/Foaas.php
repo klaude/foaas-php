@@ -2,7 +2,7 @@
 
 namespace Foaas;
 
-use Guzzle\Service\Client as GuzzleClient;
+use GuzzleHttp\Client as GuzzleClient;
 
 /**
  * Fuck off as a Service.
@@ -20,8 +20,9 @@ class Foaas extends GuzzleClient
      */
     public function __construct()
     {
-        parent::__construct('https://foaas.herokuapp.com/', [
-            'request.options' => [
+        parent::__construct([
+            'base_url' => 'https://foaas.herokuapp.com',
+            'defaults' => [
                 'headers' => [
                     'Accept' => 'application/json',
                 ],
@@ -37,19 +38,14 @@ class Foaas extends GuzzleClient
      * because I fucking feel like it.
      *
      * @throws Exception if FOAAS is giving us shit.
-     * @param string $action
-     * @param string $from
-     * @param string $name
+     * @param string $params,...
      * @return \Foaas\Response
      */
-    protected function call($action, $from, $name = null) {
-        $action = rawurlencode($action);
-        $from = rawurlencode($from);
-        $name = rawurlencode($name);
-        $path = (is_null($action) ? '' : "/{$action}") . (is_null($name) ? '' : "/{$name}") . "/{$from}";
+    protected function call(...$params) {
+        $path = implode('/', $params);
 
         try {
-            $response = $this->get($path)->send()->json();
+            $response = $this->get($path)->json();
             return new Response($response['message'], $response['subtitle']);
         } catch (\Exception $e) {
             throw new Exception($e->getMessage(), $e->getCode());
@@ -65,7 +61,7 @@ class Foaas extends GuzzleClient
      */
     public function off($name, $from)
     {
-        return $this->call('off', $from, $name);
+        return $this->call('off', $name, $from);
     }
 
     /**
@@ -77,7 +73,7 @@ class Foaas extends GuzzleClient
      */
     public function you($name, $from)
     {
-        return $this->call('you', $from, $name);
+        return $this->call('you', $name, $from);
     }
 
     /**
@@ -133,7 +129,7 @@ class Foaas extends GuzzleClient
      */
     public function donut($name, $from)
     {
-        return $this->call('donut', $from, $name);
+        return $this->call('donut', $name, $from);
     }
 
     /**
@@ -146,7 +142,7 @@ class Foaas extends GuzzleClient
      */
     public function shakespeare($name, $from)
     {
-        return $this->call('shakespeare', $from, $name);
+        return $this->call('shakespeare', $name, $from);
     }
 
     /**
@@ -160,7 +156,7 @@ class Foaas extends GuzzleClient
      */
     public function linus($name, $from)
     {
-        return $this->call('linus', $from, $name);
+        return $this->call('linus', $name, $from);
     }
 
     /**
@@ -173,7 +169,7 @@ class Foaas extends GuzzleClient
      */
     public function king($name, $from)
     {
-        return $this->call('king', $from, $name);
+        return $this->call('king', $name, $from);
     }
 
     /**
@@ -207,7 +203,7 @@ class Foaas extends GuzzleClient
      */
     public function chainsaw($name, $from)
     {
-        return $this->call('chainsaw', $from, $name);
+        return $this->call('chainsaw', $name, $from);
     }
 
     /**
@@ -268,6 +264,6 @@ class Foaas extends GuzzleClient
      */
     public function madison($name, $from)
     {
-        return $this->call('madison', $from, $name);
+        return $this->call('madison', $name, $from);
     }
 }

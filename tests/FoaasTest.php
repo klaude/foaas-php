@@ -2,10 +2,10 @@
 
 namespace Foaas\Tests;
 
-use Guzzle\Tests\GuzzleTestCase;
 use Foaas\Foaas;
+use GuzzleHttp\Subscriber\Mock;
 
-class FoaasTest extends GuzzleTestCase
+class FoaasTest extends \PHPUnit_Framework_TestCase
 {
     /** @type string */
     protected $mockPath;
@@ -25,147 +25,115 @@ class FoaasTest extends GuzzleTestCase
         $this->foaas = new Foaas;
     }
 
-    public function testOhFuckOff()
+    /**
+     * Look at all these fucks I provide.
+     *
+     * @return array
+     */
+    public function provideFucks()
     {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/off");
-        $fuckOff = $this->foaas->off($this->testName, $this->testFrom);
+        return [
+            'oh fuck off' => [
+                'off',
+                "Fuck off, {$this->testName}.",
+            ],
+            'hey fuck you' => [
+                'you',
+                "Fuck you, {$this->testName}.",
+            ],
+            'fuck that' => [
+                'that',
+                'Fuck that.',
+            ],
+            'fuck this too' => [
+                'this',
+                'Fuck this.',
+            ],
+            'fuck everything' => [
+                'everything',
+                'Fuck everything.',
+            ],
+            'and fuck everyone' => [
+                'everyone',
+                'Fuck everyone.',
+            ],
+            'take a flying fuck at a donut or something' => [
+                'donut',
+                "{$this->testName}, go and take a flying fuck at a rolling donut.",
+            ],
+            'fuck you like Shakespeare would say' => [
+                'shakespeare',
+                "{$this->testName}, Thou clay-brained guts, thou knotty-pated fool, "
+                    ."thou whoreson obscene greasy tallow-catch!",
+            ],
+            'fuck you, Linux nerd' => [
+                'linus',
+                "{$this->testName}, there aren't enough swear-words in the English language, "
+                    . "so now I'll have to call you perkeleen vittupää just to express my disgust "
+                    . "and frustration with this crap.",
+            ],
+            'you are fucking thick' => [
+                'king',
+                "Oh fuck off, just really fuck off you total dickface. Christ {$this->testName}, you are fucking thick.",
+            ],
+            'fuck me pink' => [
+                'pink',
+                'Well, Fuck me pink.',
+            ],
+            'fuck my life' => [
+                'life',
+                'Fuck my life.',
+            ],
+            'fuck me gently with a chainsaw' => [
+                'chainsaw',
+                "Fuck me gently with a chainsaw, {$this->testName}. Do I look like Mother Teresa?",
+            ],
+            'fuck you very much' => [
+                'thanks',
+                'Fuck you very much.',
+            ],
+            'give a flying fuck' => [
+                'flying',
+                "I don't give a flying fuck.",
+            ],
+            'tell me a fascinating fucking story' => [
+                'fascinating',
+                'Fascinating story, in what chapter do you shut the fuck up?.',
+            ],
+            'quote me some fucking billy madison' => [
+                'madison',
+                "What you've just said is one of the most insanely idiotic things I have ever heard, {$this->testName}. "
+                    . "At no point in your rambling, incoherent response were you even close to anything that could be "
+                    . "considered a rational thought. Everyone in this room is now dumber for having listened to it. "
+                    . "I award you no points {$this->testName}, and may God have mercy on your soul.",
+            ],
+         ];
+    }
 
-        $this->assertEquals("Fuck off, {$this->testName}.", $fuckOff->message);
+    /**
+     * @dataProvider provideFucks
+     */
+    public function testCanFuck($call, $expectedResponse)
+    {
+        $mock = new Mock([
+            file_get_contents("{$this->mockPath}/{$call}")
+        ]);
+
+        $this->foaas->getEmitter()->attach($mock);
+        $fuckOff = $this->foaas->$call($this->testName, $this->testFrom);
+
+        $this->assertEquals($expectedResponse, $fuckOff->message);
         $this->assertEquals("- {$this->testFrom}", $fuckOff->subtitle);
     }
 
-    public function testHeyFuckYou()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/you");
-        $fuckYou = $this->foaas->you($this->testName, $this->testFrom);
-
-        $this->assertEquals("Fuck you, {$this->testName}.", $fuckYou->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckYou->subtitle);
-    }
-
-    public function testFuckThat()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/that");
-        $fuckYou = $this->foaas->that($this->testFrom);
-
-        $this->assertEquals('Fuck that.', $fuckYou->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckYou->subtitle);
-    }
-
-    public function testFuckThisToo()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/this");
-        $fuckYou = $this->foaas->this($this->testFrom);
-
-        $this->assertEquals('Fuck this.', $fuckYou->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckYou->subtitle);
-    }
-
-    public function testFuckEverything()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/everything");
-        $fuckYou = $this->foaas->everything($this->testFrom);
-
-        $this->assertEquals('Fuck everything.', $fuckYou->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckYou->subtitle);
-    }
-
-    public function testAndFuckEveryone()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/everyone");
-        $fuckYou = $this->foaas->everyone($this->testFrom);
-
-        $this->assertEquals('Fuck everyone.', $fuckYou->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckYou->subtitle);
-    }
-
-    public function testTakeAFlyingFuckAtADonutOrSomething()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/donut");
-        $fuckDonut = $this->foaas->donut($this->testName, $this->testFrom);
-
-        $this->assertEquals("{$this->testName}, go and take a flying fuck at a rolling donut.", $fuckDonut->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckDonut->subtitle);
-    }
-
-    public function testFuckYouLikeShakespeareWouldSay()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/shakespeare");
-        $fuckShakespeare = $this->foaas->shakespeare($this->testName, $this->testFrom);
-
-        $this->assertEquals(
-            "{$this->testName}, Thou clay-brained guts, thou knotty-pated fool, thou whoreson obscene greasy tallow-catch!",
-            $fuckShakespeare->message
-        );
-        $this->assertEquals("- {$this->testFrom}", $fuckShakespeare->subtitle);
-    }
-
-    public function testFuckYouLinuxNerd()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/linus");
-        $fuckLinus = $this->foaas->linus($this->testName, $this->testFrom);
-
-        $this->assertEquals(
-            "{$this->testName}, there aren't enough swear-words in the English language, so now I'll have to call you perkeleen vittupää just to express my disgust and frustration with this crap.",
-            $fuckLinus->message
-        );
-        $this->assertEquals("- {$this->testFrom}", $fuckLinus->subtitle);
-    }
-
-    public function testYouAreFuckingThick()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/king");
-        $fuckKing = $this->foaas->king($this->testName, $this->testFrom);
-
-        $this->assertEquals(
-            "Oh fuck off, just really fuck off you total dickface. Christ {$this->testName}, you are fucking thick.",
-            $fuckKing->message
-        );
-        $this->assertEquals("- {$this->testFrom}", $fuckKing->subtitle);
-    }
-
-    public function testFuckMePink()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/pink");
-        $fuckPink = $this->foaas->pink($this->testFrom);
-
-        $this->assertEquals('Well, Fuck me pink.', $fuckPink->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckPink->subtitle);
-    }
-
-    public function testFuckMyLife()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/life");
-        $fuckLife = $this->foaas->life($this->testFrom);
-
-        $this->assertEquals('Fuck my life.', $fuckLife->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckLife->subtitle);
-    }
-
-    public function testFuckMeGentlyWithAChainsaw()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/chainsaw");
-        $fuckChainsaw = $this->foaas->chainsaw($this->testName, $this->testFrom);
-
-        $this->assertEquals(
-            "Fuck me gently with a chainsaw, {$this->testName}. Do I look like Mother Teresa?",
-            $fuckChainsaw->message
-        );
-        $this->assertEquals("- {$this->testFrom}", $fuckChainsaw->subtitle);
-    }
-
-    public function testFuckYouVeryMuch()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/thanks");
-        $fuckThanks = $this->foaas->thanks($this->testFrom);
-
-        $this->assertEquals('Fuck you very much.', $fuckThanks->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckThanks->subtitle);
-    }
 
     public function testFuckAnArbitraryThingOkay()
     {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/__something");
+        $mock = new Mock([
+            file_get_contents("{$this->mockPath}/__something")
+        ]);
+
+        $this->foaas->getEmitter()->attach($mock);
         $fuckSomething = $this->foaas->__something('clowns', $this->testFrom);
 
         $this->assertEquals('Fuck clowns.', $fuckSomething->message);
@@ -175,7 +143,11 @@ class FoaasTest extends GuzzleTestCase
     public function testCanCheckForAFuckingProblem()
     {
         // HTML responses generate an exception, as Foaas\Foaas expects JSON.
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/__not-json");
+        $mock = new Mock([
+            file_get_contents("{$this->mockPath}/__not-json")
+        ]);
+
+        $this->foaas->getEmitter()->attach($mock);
 
         try {
             $this->foaas->__something('clowns', $this->testFrom);
@@ -183,32 +155,5 @@ class FoaasTest extends GuzzleTestCase
             $this->assertInstanceOf('Foaas\\Exception', $e);
             $this->assertStringStartsWith('Oh fuck.', $e->getMessage());
         }
-    }
-
-    public function testGiveAFlyingFuck()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/flying");
-        $fuckFlying = $this->foaas->flying($this->testFrom);
-
-        $this->assertEquals("I don't give a flying fuck.", $fuckFlying->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckFlying->subtitle);
-    }
-
-    public function testTellMeAFascinatingFuckingStory()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/fascinating");
-        $fuckFascinating = $this->foaas->fascinating($this->testFrom);
-
-        $this->assertEquals('Fascinating story, in what chapter do you shut the fuck up?.', $fuckFascinating->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckFascinating->subtitle);
-    }
-
-    public function testQuoteMeSomeFuckingBillyMadison()
-    {
-        $this->setMockResponse($this->foaas, "{$this->mockPath}/madison");
-        $fuckMadison = $this->foaas->madison($this->testName, $this->testFrom);
-
-        $this->assertEquals("What you've just said is one of the most insanely idiotic things I have ever heard, {$this->testName}. At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone in this room is now dumber for having listened to it. I award you no points {$this->testName}, and may God have mercy on your soul.", $fuckMadison->message);
-        $this->assertEquals("- {$this->testFrom}", $fuckMadison->subtitle);
     }
 }
