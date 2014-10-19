@@ -33,10 +33,6 @@ class Foaas extends GuzzleClient
     /**
      * Make a fucking FOAAS HTTP request.
      *
-     * The $name and $from parameters are in reverse order from their FOAAS call
-     * to make the calling code a little easier when no name is present. And
-     * because I fucking feel like it.
-     *
      * @throws Exception if FOAAS is giving us shit.
      * @param string $params,...
      * @return \Foaas\Response
