@@ -126,6 +126,16 @@ class FoaasTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("- {$this->testFrom}", $fuckOff->subtitle);
     }
 
+    public function testOverrideTheFuckingConfig()
+    {
+        $config = [
+            'base_url' => 'http://example.org/',
+        ];
+
+        $foaas = new Foaas($config);
+
+        $this->assertEquals($config['base_url'], $foaas->getBaseUrl());
+    }
 
     public function testFuckAnArbitraryThingOkay()
     {

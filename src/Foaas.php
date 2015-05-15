@@ -17,17 +17,21 @@ class Foaas extends GuzzleClient
 {
     /**
      * Fuck. Better make an FOAAS call.
+     *
+     * @param array $config Overrides to the default config.
      */
-    public function __construct()
+    public function __construct(array $config = [])
     {
-        parent::__construct([
+        $defaultConfig = [
             'base_url' => 'https://foaas.herokuapp.com',
             'defaults' => [
                 'headers' => [
                     'Accept' => 'application/json',
                 ],
             ],
-        ]);
+        ];
+
+        parent::__construct(array_replace_recursive($defaultConfig, $config));
     }
 
     /**
