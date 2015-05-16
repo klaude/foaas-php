@@ -90,8 +90,8 @@ echo $fuck->fascinating('Marie Curie');
 echo $fuck->madison('Doctor', 'Rose');
 
 // "Fuck clowns." Seriously. Clowns are creepy.
-// This example only retrieves the FOAAS message response, not the subtitle.
-echo $fuck->__something('clowns', 'me')->message;
+// This example only uses the FOAAS message response, not the subtitle.
+echo $fuck->clowns('me')->message;
 ```
 
 FOAAS responses are kept in a `Foaas\Response` object so you can access FOAAS' message and subtitle directly. Or you can fucking echo the response as a string if that's what floats your fucking boat. What the fuck do I care?

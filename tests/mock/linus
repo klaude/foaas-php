@@ -1,7 +1,0 @@
-HTTP/1.1 200 OK
-Server: cloudflare-nginx
-Date: Fri, 26 Jul 2013 03:01:51 GMT
-Content-Type: application/json
-Vary: Accept
-
-{"message":"name, there aren't enough swear-words in the English language, so now I'll have to call you perkeleen vittupää just to express my disgust and frustration with this crap.","subtitle":"- from"}
