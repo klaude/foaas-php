@@ -134,7 +134,7 @@ class Foaas extends GuzzleClient
         foreach ($this->operations() as $operation) {
             $operationName = explode('/', $operation['url'])[1];
             $fields = array_map(
-                function ($field)
+                function($field)
                 {
                     return $field['field'];
                 },
