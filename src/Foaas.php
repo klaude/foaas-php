@@ -165,7 +165,7 @@ class Foaas extends GuzzleClient
     }
 
     /**
-     * Get a list of available FOAAS operations.
+     * Get a list of all the fucking available FOAAS operations.
      *
      * @return array
      */
