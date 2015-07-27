@@ -35,14 +35,18 @@ use GuzzleHttp\Client as GuzzleClient;
  * @method Response ballmer(string $name, string $company, string $from) Fucking :name is a fucking pussy. I'm going to fucking bury that guy, I have done it before, and I will do it again. I'm going to fucking kill :company. - :from
  * @method Response what(string $from) What the fuck?!. - :from
  * @method Response because(string $from) Why? Because Fuck you, that's why. - :from
- * @method Response tool(string $tool, string $from) Can you use :tool? Fuck no! - :from
+ * @method Response caniuse(string $tool, string $from) Can you use :tool? Fuck no! - :from
  * @method Response bye(string $from) Fuckity bye! - :from
  * @method Response diabetes(string $from) I'd love to stop and chat to you but I'd rather have type 2 diabetes. - :from
  * @method Response bus(string $name, string $from) Christ on a bendy-bus, :name, don't be such a fucking faff-arse. - :from
  * @method Response xmas(string $name, string $from) Merry Fucking Christmas, :name. - :from
+ * @method Response bday(string $name, string $from) Happy Fucking Birthday, :name. - :from
  * @method Response awesome(string $from) This is Fucking Awesome. - :from
  * @method Response tucker(string $from) Come the fuck in or fuck the fuck off. - :from
- * @method Response bucket(string $name, string $from) Please choke on a bucket of cocks. - :from
+ * @method Response bucket(string $from) Please choke on a bucket of cocks. - :from
+ * @method Response family(string $from) Fuck you, your whole family, your pets, and your feces. - :from
+ * @method Response shutup(string $name, string $from) :name, shut the fuck up. - :from
+ * @method Response zayn(string $from) Ask me if I give a motherfuck ?!! - :from
  * @method Response version() Get the FOAAS service version.
  *
  * @link http://foaas.com/

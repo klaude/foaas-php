@@ -93,6 +93,67 @@ echo $fuck->fascinating('Marie Curie');
 // no points Doctor, and may God have mercy on your soul. - Rose"
 echo $fuck->madison('Doctor', 'Rose');
 
+// Cool story, Bro - Joseph Stalin
+echo $fuck->cool('Joseph Stalin');
+
+// And Homer said unto Marge, "Verily, cast thine eyes upon the field in which I
+// grow my fucks", and Marge gave witness unto the field, and saw that it was
+// barren. - The Book of Fucks
+echo $fuck->field('Homer', 'Marge', 'The Book of Fucks');
+
+// Well Mary, aren't you a shining example of a rancid fuck-nugget. - Joseph
+echo $fuck->nugget('Mary', 'Joseph');
+
+// Fuck off, you must, Doc. - Marty
+echo $fuck->yoda('Doc', 'Marty');
+
+// Fucking Spacely is a fucking pussy. I'm going to fucking bury that guy, I
+// have done it before, and I will do it again. I'm going to fucking kill
+// Spacely Space Sprockets. - George Jetson
+echo $fuck->ballmer('Spacely', 'Spacely Space Sprockets', 'George Jetson');
+
+// What the fuck?!. - Applejack
+echo $fuck->what('Applejack');
+
+// Why? Because Fuck you, that's why. - Muad'dib
+echo $fuck->because('Muad\'dib');
+
+// Can you use fingers? Fuck no! - Ron Paul
+echo $fuck->caniuse('fingers', 'Ron Paul');
+
+// Fuckity bye! - Han Solo
+echo $fuck->bye('Han Solo');
+
+// I'd love to stop and chat to you but I'd rather have type 2 diabetes. - Worf
+echo $fuck->diabetes('Worf');
+
+// Christ on a bendy-bus, Sam, don't be such a fucking faff-arse. - Dean
+echo $fuck->bus('Sam', 'Dean');
+
+// Merry Fucking Christmas, Lars. - James
+echo $fuck->xmas('Lars', 'James');
+
+// Happy Fucking Birthday, Trapper. - Hawkeye
+echo $fuck->bday('Trapper', 'Hawkeye');
+
+// This is Fucking Awesome. - 2Pac
+echo $fuck->awesome('2Pac');
+
+// Come the fuck in or fuck the fuck off. - Kim Kardashian
+echo $fuck->tucker('Kim Kardashian');
+
+// Please choke on a bucket of cocks. - Pope Francis
+echo $fuck->bucket('Pope Francis');
+
+// Fuck you, your whole family, your pets, and your feces. - Bill Gates
+echo $fuck->family('Bill Gates');
+
+// Steve, shut the fuck up. - Woz
+echo $fuck->shutup('Steve', 'Woz');
+
+// Ask me if I give a motherfuck ?!! - The Hamburglar
+echo $fuck->zayn('The Hamburglar');
+
 // "Fuck clowns." Seriously. Clowns are creepy.
 // This example only uses the FOAAS message response, not the subtitle.
 echo $fuck->clowns('me')->message;

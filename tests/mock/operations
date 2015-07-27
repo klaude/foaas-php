@@ -34,6 +34,20 @@ Vary: Accept
     ]
   },
   {
+    "name": "Bday",
+    "url": "/bday/:name/:from",
+    "fields": [
+      {
+        "name": "Name",
+        "field": "name"
+      },
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
     "name": "Because",
     "url": "/because/:from",
     "fields": [
@@ -166,6 +180,16 @@ Vary: Accept
   {
     "name": "Everything",
     "url": "/everything/:from",
+    "fields": [
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
+    "name": "Family",
+    "url": "/family/:from",
     "fields": [
       {
         "name": "From",
@@ -330,6 +354,20 @@ Vary: Accept
     ]
   },
   {
+    "name": "Shut Up",
+    "url": "/shutup/:name/:from",
+    "fields": [
+      {
+        "name": "Name",
+        "field": "name"
+      },
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
     "name": "Thanks",
     "url": "/thanks/:from",
     "fields": [
@@ -420,6 +458,16 @@ Vary: Accept
         "name": "Name",
         "field": "name"
       },
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
+    "name": "Zayn",
+    "url": "/zayn/:from",
+    "fields": [
       {
         "name": "From",
         "field": "from"
