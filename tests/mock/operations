@@ -162,6 +162,24 @@
     ]
   },
   {
+    "name": "Do Something",
+    "url": "/dosomething/:do/:something/:from",
+    "fields": [
+      {
+        "name": "Do",
+        "field": "do"
+      },
+      {
+        "name": "Something",
+        "field": "something"
+      },
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
     "name": "Everyone",
     "url": "/everyone/:from",
     "fields": [
@@ -223,6 +241,20 @@
     "name": "Flying",
     "url": "/flying/:from",
     "fields": [
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
+    "name": "Keep Calm",
+    "url": "/keepcalm/:reaction/:from",
+    "fields": [
+      {
+        "name": "Reaction",
+        "field": "reaction"
+      },
       {
         "name": "From",
         "field": "from"
@@ -310,6 +342,20 @@
     ]
   },
   {
+    "name": "Fuck Off With",
+    "url": "/off-with/:behavior/:from",
+    "fields": [
+      {
+        "name": "Behavior",
+        "field": "behavior"
+      },
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
     "name": "Outside",
     "url": "/outside/:name/:from",
     "fields": [
@@ -326,6 +372,16 @@
   {
     "name": "Pink",
     "url": "/pink/:from",
+    "fields": [
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
+    "name": "Retard",
+    "url": "/retard/:from",
     "fields": [
       {
         "name": "From",
@@ -388,6 +444,20 @@
       {
         "name": "From",
         "field": "from"
+      }
+    ]
+  },
+  {
+    "name": "This Guy",
+    "url": "/thumbs/:name/:from",
+    "fields": [
+      {
+        "name": "From",
+        "field": "from"
+      },
+      {
+        "name": "Name",
+        "field": "name"
       }
     ]
   },

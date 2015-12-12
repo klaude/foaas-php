@@ -154,6 +154,21 @@ echo $fuck->shutup('Steve', 'Woz');
 // Ask me if I give a motherfuck ?!! - The Hamburglar
 echo $fuck->zayn('The Hamburglar');
 
+// Keep the fuck calm and pound sand! - Captain America
+echo $fuck->keepcalm('pound sand', 'Captain America');
+
+// Eat the fucking paint chips! - Mister Rogers
+echo $fuck->dosomething('Eat', 'paint chips', 'Mister Rogers');
+
+// Who has two thumbs and doesn't give a fuck? Deez nuts. - Snoop
+echo $fuck->thumbs('Deez nuts', 'Snoop');
+
+// You Fucktard! - Bernie Sanders
+echo $fuck->retard('Bernie Sanders');
+
+// Fuck off with a well balanced meal - Alex Trebek
+echo $fuck->{'off-with'}('a well balanced meal', 'Alex Trebek');
+
 // "Fuck clowns." Seriously. Clowns are creepy.
 // This example only uses the FOAAS message response, not the subtitle.
 echo $fuck->clowns('me')->message;

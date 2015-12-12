@@ -47,6 +47,11 @@ use GuzzleHttp\Client as GuzzleClient;
  * @method Response family(string $from) Fuck you, your whole family, your pets, and your feces. - :from
  * @method Response shutup(string $name, string $from) :name, shut the fuck up. - :from
  * @method Response zayn(string $from) Ask me if I give a motherfuck ?!! - :from
+ * @method Response keepcalm(string $reaction, string $from) Keep the fuck calm and :reaction! - :from
+ * @method Response dosomething(string $do, string $something, string $from) :do the fucking :something! - :from
+ * @method Response thumbs(string $name, string $from) Who has two thumbs and doesn't give a fuck? :name. - :from
+ * @method Response retard(string $from) You Fucktard! - :from
+ * @method Response {'off-with'}(string $behavior, string $from) Fuck off with :behavior - :from
  * @method Response version() Get the FOAAS service version.
  *
  * @link http://foaas.com/
