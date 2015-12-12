@@ -3,7 +3,9 @@
 namespace Foaas\Tests;
 
 use Foaas\Foaas;
-use GuzzleHttp\Subscriber\Mock;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
 use PHPUnit_Framework_TestCase;
 
 class FoaasTest extends PHPUnit_Framework_TestCase
@@ -11,8 +13,8 @@ class FoaasTest extends PHPUnit_Framework_TestCase
     /** @type string */
     protected $mockPath;
 
-    /** @type \PHPUnit_Framework_MockObject_MockObject|Foaas */
-    protected $foaas;
+    /** @var \GuzzleHttp\Handler\MockHandler */
+    protected $mockHandler;
 
     public function setUp()
     {
@@ -20,40 +22,27 @@ class FoaasTest extends PHPUnit_Framework_TestCase
 
         // The mock FOAAS client returns the operations defined in
         // mock/operations.
-        $operationsMock = new Mock([
-            file_get_contents("{$this->mockPath}/operations")
+        $this->mockHandler = new MockHandler([
+            new Response(200, [], file_get_contents("{$this->mockPath}/operations")),
         ]);
-
-        $mockFoaas = new Foaas;
-        $mockFoaas->getEmitter()->attach($operationsMock);
-
-        $this->foaas = $this->getMockBuilder('Foaas\\Foaas')
-            ->setMethods(['operations'])
-            ->getMock();
-
-        $this->foaas->expects($this->any())
-            ->method('operations')
-            ->will($this->returnValue($mockFoaas->operations()));
     }
 
     public function testOverrideTheFuckingConfig()
     {
         $config = [
-            'base_url' => 'http://example.org/',
+            'base_uri' => 'http://example.org/',
         ];
 
-        $this->assertEquals($config['base_url'], (new Foaas($config))->getBaseUrl());
+        $this->assertEquals($config['base_uri'], (new Foaas($config))->getConfig()['base_uri']);
     }
 
     public function testFuckAnArbitraryThingOkay()
     {
         $from = 'from';
-        $mock = new Mock([
-            file_get_contents("{$this->mockPath}/__something")
-        ]);
+        $this->mockHandler->append(new Response(200, [], file_get_contents("{$this->mockPath}/__something")));
+        $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
 
-        $this->foaas->getEmitter()->attach($mock);
-        $fuckSomething = $this->foaas->__call('clowns', [$from]);
+        $fuckSomething = $foaas->__call('clowns', [$from]);
 
         $this->assertEquals('Fuck clowns.', $fuckSomething->message);
         $this->assertEquals("- {$from}", $fuckSomething->subtitle);
@@ -61,25 +50,27 @@ class FoaasTest extends PHPUnit_Framework_TestCase
 
     public function testHowDoIHoldAllTheseArguments()
     {
+        $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
+
         $this->setExpectedException('Foaas\\Exception', 'Too many arguments!');
-        $this->foaas->off('too', 'many', 'arguments');
+        $foaas->off('too', 'many', 'arguments');
     }
 
     public function testItBlowsUpWhenThereArentAnyCallFields()
     {
+        $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
+
         $this->setExpectedException('Foaas\\Exception', 'Missing the arguments: name, from');
-        $this->foaas->off();
+        $foaas->off();
     }
 
     public function testCanCheckForAFuckingFoaasProblem()
     {
         // HTML responses generate an exception, as Foaas\Foaas expects JSON.
-        $mock = new Mock([
-            file_get_contents("{$this->mockPath}/__not-json")
-        ]);
+        $this->mockHandler->append(new Response(200, [], file_get_contents("{$this->mockPath}/__not-json")));
+        $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
 
-        $this->foaas->getEmitter()->attach($mock);
         $this->setExpectedException('Foaas\\Exception', 'Oh fuck.');
-        $this->foaas->__call('clowns', ['from']);
+        $foaas->__call('clowns', ['from']);
     }
 }

@@ -62,11 +62,9 @@ class Foaas extends GuzzleClient
     public function __construct(array $config = [])
     {
         $defaultConfig = [
-            'base_url' => 'https://foaas.herokuapp.com',
-            'defaults' => [
-                'headers' => [
-                    'Accept' => 'application/json',
-                ],
+            'base_uri' => 'https://foaas.herokuapp.com',
+            'headers' => [
+                'Accept' => 'application/json',
             ],
         ];
 
@@ -78,11 +76,11 @@ class Foaas extends GuzzleClient
      *
      * @throws Exception if you didn't pass enough arguments. Way to go, dingus.
      * @throws Exception if you fucked up and passed too many arguments.
-     * @param string $name
-     * @param array $arguments
+     * @param string $method
+     * @param array $args
      * @return Response
      */
-    public function __call($name, array $arguments = [])
+    public function __call($method, $args)
     {
         $missingArguments = [];
         $tooManyArguments = false;
@@ -91,16 +89,16 @@ class Foaas extends GuzzleClient
         // Make sure the right number of fields were passed in.
         // Custom FOAAS calls have :thing and :from fields
         $customCallArguments = ['from'];
-        $requiredArguments = in_array($name, array_keys($operations))
-            ? $operations[$name]
+        $requiredArguments = in_array($method, array_keys($operations))
+            ? $operations[$method]
             : $customCallArguments;
 
-        $countDiff = count($arguments) - count($requiredArguments);
+        $countDiff = count($args) - count($requiredArguments);
 
         // Figure out which arguments were missing or if there were too many
         // arguments.
         if ($countDiff < 0) {
-            $missingArguments = array_splice($requiredArguments, count($arguments) * -1);
+            $missingArguments = array_splice($requiredArguments, count($args) * -1);
         } elseif ($countDiff > 0) {
             $tooManyArguments = true;
         }
@@ -116,7 +114,7 @@ class Foaas extends GuzzleClient
         }
 
         // Finally, make the damn FOAAS call.
-        return $this->callFoaas('/' . $name . '/' . implode('/', $arguments));
+        return $this->callFoaas('/' . $method . '/' . implode('/', $args));
     }
 
     /**
@@ -161,7 +159,7 @@ class Foaas extends GuzzleClient
     protected function callFoaas($path = '/')
     {
         try {
-            $response = $this->get($path)->json();
+            $response = json_decode($this->request('GET', $path)->getBody()->getContents(), true);
             return new Response($response['message'], $response['subtitle']);
         } catch (\Exception $e) {
             throw new Exception($e->getMessage(), $e->getCode(), $e);
@@ -175,6 +173,6 @@ class Foaas extends GuzzleClient
      */
     public function operations()
     {
-        return $this->get('operations')->json();
+        return json_decode($this->request('GET', 'operations')->getBody(), true);
     }
 }
