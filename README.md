@@ -169,6 +169,16 @@ echo $fuck->retard('Bernie Sanders');
 // Fuck off with a well balanced meal - Alex Trebek
 echo $fuck->{'off-with'}('a well balanced meal', 'Alex Trebek');
 
+// The point is, ladies and gentleman, that misery -- for lack of a better word
+// -- is good. misery is right. misery works. misery clarifies, cuts through,
+// and captures the essence of the evolutionary spirit. misery, in all of its
+// forms -- misery for life, for money, for love, knowledge -- has marked the
+// upward surge of mankind - Harry Potter
+echo $fuck->greed('misery', 'Harry Potter');
+
+// Happy fuckin' Mornin'! - Mark Zuckerberg
+echo $fuck->mornin('Mark Zuckerberg');
+
 // "Fuck clowns." Seriously. Clowns are creepy.
 // This example only uses the FOAAS message response, not the subtitle.
 echo $fuck->clowns('me')->message;

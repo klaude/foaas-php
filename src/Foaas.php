@@ -52,6 +52,8 @@ use GuzzleHttp\Client as GuzzleClient;
  * @method Response thumbs(string $name, string $from) Who has two thumbs and doesn't give a fuck? :name. - :from
  * @method Response retard(string $from) You Fucktard! - :from
  * @method Response {'off-with'}(string $behavior, string $from) Fuck off with :behavior - :from
+ * @method Response greed(string $noun, string $from) The point is, ladies and gentleman, that :noun -- for lack of a better word -- is good. :noun is right. :noun works. :noun clarifies, cuts through, and captures the essence of the evolutionary spirit. :noun, in all of its forms -- :noun for life, for money, for love, knowledge -- has marked the upward surge of mankind - :from
+ * @method Response mornin(string $from) Happy fuckin' Mornin'! - :from
  * @method Response version() Get the FOAAS service version.
  *
  * @link http://foaas.com/
