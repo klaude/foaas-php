@@ -8,7 +8,7 @@
          convertWarningsToExceptions="true"
          testSuiteLoaderClass="PHPUnit_Runner_StandardTestSuiteLoader"
          beStrictAboutTestsThatDoNotTestAnything="true"
-         checkForUnintentionallyCoveredCode="true"
+         beStrictAboutCoversAnnotation="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutChangesToGlobalState="true"
          verbose="true">
