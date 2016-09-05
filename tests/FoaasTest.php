@@ -2,6 +2,7 @@
 
 namespace Foaas\Tests;
 
+use Foaas\Exception as FoaasException;
 use Foaas\Foaas;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
@@ -52,7 +53,7 @@ class FoaasTest extends PHPUnit_Framework_TestCase
     {
         $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
 
-        $this->setExpectedException('Foaas\\Exception', 'Too many arguments!');
+        $this->setExpectedException(FoaasException::class, 'Too many arguments!');
         $foaas->off('too', 'many', 'arguments');
     }
 
@@ -60,7 +61,7 @@ class FoaasTest extends PHPUnit_Framework_TestCase
     {
         $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
 
-        $this->setExpectedException('Foaas\\Exception', 'Missing the arguments: name, from');
+        $this->setExpectedException(FoaasException::class, 'Missing the arguments: name, from');
         $foaas->off();
     }
 
@@ -70,7 +71,7 @@ class FoaasTest extends PHPUnit_Framework_TestCase
         $this->mockHandler->append(new Response(200, [], file_get_contents("{$this->mockPath}/__not-json")));
         $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
 
-        $this->setExpectedException('Foaas\\Exception', 'Oh fuck.');
+        $this->setExpectedException(FoaasException::class, 'Oh fuck.');
         $foaas->__call('clowns', ['from']);
     }
 }

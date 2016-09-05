@@ -11,6 +11,7 @@ use GuzzleHttp\Client as GuzzleClient;
  * service ever.)
  *
  * @method Response off(string $name, string $from) Fuck off, :name. - :from
+ * @method Response ing(string $name, string $from) Fucking fuck off, :name. - :from
  * @method Response you(string $name, string $from) Fuck you, :name. - :from
  * @method Response this(string $from) Fuck this. - :from
  * @method Response that(string $from) Fuck that. - :from
@@ -49,11 +50,34 @@ use GuzzleHttp\Client as GuzzleClient;
  * @method Response zayn(string $from) Ask me if I give a motherfuck ?!! - :from
  * @method Response keepcalm(string $reaction, string $from) Keep the fuck calm and :reaction! - :from
  * @method Response dosomething(string $do, string $something, string $from) :do the fucking :something! - :from
+ * @method Response mornin(string $from) Happy fuckin' Mornin'! - :from
  * @method Response thumbs(string $name, string $from) Who has two thumbs and doesn't give a fuck? :name. - :from
  * @method Response retard(string $from) You Fucktard! - :from
- * @method Response {'off-with'}(string $behavior, string $from) Fuck off with :behavior - :from
  * @method Response greed(string $noun, string $from) The point is, ladies and gentleman, that :noun -- for lack of a better word -- is good. :noun is right. :noun works. :noun clarifies, cuts through, and captures the essence of the evolutionary spirit. :noun, in all of its forms -- :noun for life, for money, for love, knowledge -- has marked the upward surge of mankind - :from
- * @method Response mornin(string $from) Happy fuckin' Mornin'! - :from
+ * @method Response bm(string $name, string $from) Bravo mike, :name. - :from
+ * @method Response gfy(string $name, string $from) Golf foxtrot yankee, :name. - :from
+ * @method Response me(string $from) Fuck me. - :from
+ * @method Response back(string $name, string $from) :name, back the fuck off. - :from
+ * @method Response think(string $name, string $from) :name, you think I give a fuck? - :from
+ * @method Response keep(string $name, string $from) :name: Fuck off. And when you get there, fuck off from there too. Then fuck off some more. Keep fucking off until you get back here. Then fuck off again. - :from
+ * @method Response single(string $from) Not a single fuck was given. - :from
+ * @method Response thinking(string $name, string $from) :name, what the fuck where you actually thinking? - :from
+ * @method Response looking(string $from) Looking for a fuck to give. - :from
+ * @method Response no(string $from) No fucks given. - :from
+ * @method Response give(string $from) I give zero fucks. - :from
+ * @method Response zero(string $from) Zero, thats the number of fucks I give. - :from
+ * @method Response pulp(string $language, string $from) :language, motherfucker, do you speak it? - :from
+ * @method Response sake(string $from) For Fuck's sake! - :from
+ * @method Response particular(string $thing, string $from) Fuck this :thing in particular. - :from
+ * @method Response anyway(string $company, string $from) Who the fuck are you anyway, :company, why are you stirring up so much trouble, and, who pays you? - :from
+ * @method Response maybe(string $from) Maybe. Maybe not. Maybe fuck yourself. - :from
+ * @method Response blackadder(string $name, string $from) :name, your head is as empty as a eunuch’s underpants. Fuck off! - :from
+ * @method Response horse(string $from) Fuck you and the horse you rode in on. - :from
+ * @method Response deraadt(string $name, string $from) :name you are being the usual slimy hypocritical asshole... You may have had value ten years ago, but people will see that you don't anymore. - :from
+ * @method Response problem(string $name, string $from) What the fuck is you problem :name? - :from
+ * @method Response cocksplat(string $name, string $from) Fuck off :name, you worthless cocksplat. - :from
+ * @method Response too(string $from) Thanks, fuck you too. - :from
+ * @method Response {'off-with'}(string $behavior, string $from) Fuck off with :behavior - :from
  * @method Response version() Get the FOAAS service version.
  *
  * @link http://foaas.com/

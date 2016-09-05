@@ -14,17 +14,7 @@ Installation
 ------------
 Use [Composer](http://getcomposer.org/)!
 
-Add `"klaude/foaas": "dev-master"` to your project's `composer.json` file's require section:
-
-```json
-{
-    "require": {
-        "klaude/foaas": "dev-master"
-    }
-}
-```
-
-Next, add `require_once __DIR__ . '/vendor/autoload.php';` (replacing `__DIR__` with wherever your project's root is if you need to) to the beginning of your fucking script, then boom!
+Run `composer require klaude/foaas` then add `require_once __DIR__ . '/vendor/autoload.php';` (replacing `__DIR__` with wherever your project's root is if you need to) to the beginning of your fucking script, then boom!
 
 Usage
 -----
@@ -35,6 +25,9 @@ $fuck = new Foaas\Foaas;
 
 // "Fuck off, Joker. - Batman"
 echo $fuck->off('Joker', 'Batman');
+
+// "Fucking fuck off, Esienhower. - Kruschev"
+echo $fuck->ing('Esienhower', 'Kruschev');
 
 // "Fuck you, Harpo. - Groucho"
 echo $fuck->you('Harpo', 'Groucho');
@@ -160,14 +153,14 @@ echo $fuck->keepcalm('pound sand', 'Captain America');
 // Eat the fucking paint chips! - Mister Rogers
 echo $fuck->dosomething('Eat', 'paint chips', 'Mister Rogers');
 
+// Happy fuckin' Mornin'! - Mark Zuckerberg
+echo $fuck->mornin('Mark Zuckerberg');
+
 // Who has two thumbs and doesn't give a fuck? Deez nuts. - Snoop
 echo $fuck->thumbs('Deez nuts', 'Snoop');
 
 // You Fucktard! - Bernie Sanders
 echo $fuck->retard('Bernie Sanders');
-
-// Fuck off with a well balanced meal - Alex Trebek
-echo $fuck->{'off-with'}('a well balanced meal', 'Alex Trebek');
 
 // The point is, ladies and gentleman, that misery -- for lack of a better word
 // -- is good. misery is right. misery works. misery clarifies, cuts through,
@@ -176,8 +169,77 @@ echo $fuck->{'off-with'}('a well balanced meal', 'Alex Trebek');
 // upward surge of mankind - Harry Potter
 echo $fuck->greed('misery', 'Harry Potter');
 
-// Happy fuckin' Mornin'! - Mark Zuckerberg
-echo $fuck->mornin('Mark Zuckerberg');
+// Bravo mike, Bert. - Ernie
+echo $fuck->bm('Bert', 'Ernie');
+
+// Golf foxtrot yankee, Janet. - LaToya
+echo $fuck->gfy('Janet', 'LaToya');
+
+// Fuck me. - Akira
+echo $fuck->me('Akira');
+
+// R2-D2, back the fuck off. - Han
+echo $fuck->back('R2-D2', 'Han');
+
+// Chun Li, you think I give a fuck?. - Cammy
+echo $fuck->think('Chun Li', 'Cammy');
+
+// moot: Fuck off. And when you get there, fuck off from there too. Then fuck off some more. Keep fucking off until you get back here. Then fuck off again. - Lowtax
+echo $fuck->keep('moot', 'Lowtax');
+
+// And not a single fuck was given. - Edward Snowden
+echo $fuck->single('Edward Snowden');
+
+// Lars, what the fuck were you actually thinking? - James
+echo $fuck->thinking('Lars', 'James');
+
+// Looking for a fuck to give. - Beyonce
+echo $fuck->looking('Beyonce');
+
+// No fucks given. - Splinter
+echo $fuck->no('Splinter');
+
+// I give zero fucks. - Elvis
+echo $fuck->give('Elvis');
+
+// Zero, thats the number of fucks I give. - Theo de Raadt
+echo $fuck->zero('Theo de Raadt');
+
+// Sindarin, motherfucker, do you speak it? - Elrond
+echo $fuck->pulp('Sindarin', 'Elrond');
+
+// For fuck's sake! - Michael Jordan
+echo $fuck->sake('Michael Jordan');
+
+// Fuck this pizza in particular. - Papa John
+echo $fuck->particular('pizza', 'Papa John');
+
+// Who the fuck are you anyway, Toys For Tots, why are you stirring up so much trouble, and, who pays you? - Kim Jong Un
+echo $fuck->anyway('Toys For Tots', 'Kim Jong Un');
+
+// Maybe. Maybe not. Maybe fuck yourself. - Bill Nye
+echo $fuck->maybe('Bill Nye');
+
+// Charles, your head is as empty as a eunuch’s underpants. Fuck off! - Margaret
+echo $fuck->blackadder('Charles', 'Margaret');
+
+// Fuck you and the horse you rode in on. - William Wallace
+echo $fuck->horse('William Wallace');
+
+// John you are being the usual slimy hypocritical asshole... You may have had value ten years ago, but people will see that you don't anymore. - Paul
+echo $fuck->deraadt('John', 'Paul');
+
+// What the fuck is you problem Scully? - Mulder
+echo $fuck->problem('Scully', 'Mulder');
+
+// Fuck off Maverick, you worthless cocksplat. - Goose
+echo $fuck->cocksplat('Maverick', 'Goose');
+
+// Thanks, fuck you too. - Stalin
+echo $fuck->too('Stalin');
+
+// Fuck off with a well balanced meal - Alex Trebek
+echo $fuck->{'off-with'}('a well balanced meal', 'Alex Trebek');
 
 // "Fuck clowns." Seriously. Clowns are creepy.
 // This example only uses the FOAAS message response, not the subtitle.
