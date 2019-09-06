@@ -1,8 +1,8 @@
 # Call Fuck Off As A Service in PHP
 
 [![Build Status](https://travis-ci.org/klaude/foaas-php.png)](https://travis-ci.org/klaude/foaas-php)
-[![Latest Stable Version](https://poser.pugx.org/klaude/foaas-php/v/stable)](https://packagist.org/packages/klaude/foaas-php)
-[![Latest Unstable Version](https://poser.pugx.org/klaude/foaas-php/v/unstable)](https://packagist.org/packages/klaude/foaas-php)
+[![Latest Stable Version](https://poser.pugx.org/klaude/foaas/v/stable)](https://packagist.org/packages/klaude/foaas)
+[![Latest Unstable Version](https://poser.pugx.org/klaude/foaas/v/unstable)](https://packagist.org/packages/klaude/foaas)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/klaude/foaas-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/klaude/foaas-php/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/klaude/foaas-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/klaude/foaas-php/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/63ce3ca8-730c-473a-8f73-dec32a7b7602/mini.png)](https://insight.sensiolabs.com/projects/63ce3ca8-730c-473a-8f73-dec32a7b7602)
