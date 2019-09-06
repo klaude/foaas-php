@@ -120,7 +120,7 @@ class Foaas extends GuzzleClient
         // Make sure the right number of fields were passed in.
         // Custom FOAAS calls have :thing and :from fields
         $customCallArguments = ['from'];
-        $requiredArguments = in_array($method, array_keys($operations))
+        $requiredArguments = array_key_exists($method, $operations)
             ? $operations[$method]
             : $customCallArguments;
 
@@ -167,8 +167,7 @@ class Foaas extends GuzzleClient
         foreach ($this->operations() as $operation) {
             $operationName = explode('/', $operation['url'])[1];
             $fields = array_map(
-                function($field)
-                {
+                static function ($field) {
                     return $field['field'];
                 },
                 $operation['fields']
