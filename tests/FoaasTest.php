@@ -8,10 +8,11 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit_Framework_TestCase;
+use ReflectionClass;
 
 class FoaasTest extends PHPUnit_Framework_TestCase
 {
-    /** @type string */
+    /** @var string */
     protected $mockPath;
 
     /** @var \GuzzleHttp\Handler\MockHandler */
@@ -73,5 +74,42 @@ class FoaasTest extends PHPUnit_Framework_TestCase
 
         $this->setExpectedException(FoaasException::class, 'Oh fuck.');
         $foaas->__call('clowns', ['from']);
+    }
+
+    public function provideMeSomeFuckingOptions()
+    {
+        return [
+            'no fuckin options' => [false, null, ''],
+            'just gonna be annoying and shout it' => [true, null, 'shoutcloud'],
+            'lol fuck in Spanish' => [false, 'es', 'i18n=es'],
+            'shout in German so they can hear me in fucking Frankfurt!' => [true, 'de', 'shoutcloud&i18n=de'],
+        ];
+    }
+
+    /**
+     * @dataProvider provideMeSomeFuckingOptions
+     * @param bool $shouting
+     * @param string $language
+     * @param string $expectedQueryString
+     * @throws \ReflectionException
+     */
+    public function testBuildMeTheGoddamnQueryString($shouting, $language, $expectedQueryString)
+    {
+        $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
+
+        if ($shouting) {
+            $this->assertSame($foaas, $foaas->shout());
+        }
+
+        if ($language !== null) {
+            $this->assertSame($foaas, $foaas->in($language));
+        }
+
+        $reflection = new ReflectionClass(get_class($foaas));
+        $method = $reflection->getMethod('buildQueryString');
+        $method->setAccessible(true);
+        $actualQueryString = $method->invokeArgs($foaas, []);
+
+        $this->assertEquals($expectedQueryString, $actualQueryString);
     }
 }

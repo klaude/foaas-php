@@ -106,6 +106,20 @@ use GuzzleHttp\Client as GuzzleClient;
 class Foaas extends GuzzleClient
 {
     /**
+     * Are we gonna fucking shout it out or not?
+     *
+     * @var bool
+     */
+    protected $shouting = false;
+
+    /**
+     * We gonna insult someone in another language or what?
+     *
+     * @var string|null
+     */
+    protected $language;
+
+    /**
      * Fuck. Better make an FOAAS call.
      *
      * @param array $config Overrides to the default config.
@@ -208,9 +222,26 @@ class Foaas extends GuzzleClient
      */
     protected function callFoaas($path = '/')
     {
+        $options = [];
+        $queryString = $this->buildQueryString();
+
+        if ($queryString !== '') {
+            $options['query'] = $queryString;
+        }
+
         try {
-            $response = json_decode($this->request('GET', $path)->getBody()->getContents(), true);
+            $response = json_decode($this->request('GET', $path, $options)->getBody()->getContents(), true);
+
+            // How the fuck did this happen? I'll tell how you it fuckin'
+            // happened. FOAAS got a call with an unknown language for
+            // translation and shit all over us. That's what.
+            if (!array_key_exists('subtitle', $response) || $response['subtitle'] === ' undefined') {
+                throw new Exception($response['message'], 400);
+            }
+
             return new Response($response['message'], $response['subtitle']);
+        } catch (Exception $e) {
+            throw $e;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage(), $e->getCode(), $e);
         }
@@ -224,5 +255,53 @@ class Foaas extends GuzzleClient
     public function operations()
     {
         return json_decode($this->request('GET', 'operations')->getBody(), true);
+    }
+
+    /**
+     * Okay we're gonna shout this one real fuckin' loud.
+     *
+     * @return self
+     */
+    public function shout()
+    {
+        $this->shouting = true;
+        return $this;
+    }
+
+    /**
+     * Fuck off in a language that's not English. Pinche cabrón.
+     *
+     * @param string|null $language
+     * @return self
+     */
+    public function in($language)
+    {
+        $this->language = $language;
+        return $this;
+    }
+
+    /**
+     * Build an FOAAS query string from the dumbass little internal client bits.
+     *
+     * Call options are reset for the next FOAAS call. Because side effects like
+     * this are the fucking shit.
+     *
+     * @return string
+     */
+    protected function buildQueryString()
+    {
+        $queryStringParts = [];
+
+        if ($this->shouting) {
+            $queryStringParts[] = 'shoutcloud';
+            $this->shouting = false;
+        }
+
+        if ($this->language !== null) {
+            $queryStringParts[] = "i18n={$this->language}";
+            $this->language = null;
+        }
+
+        return implode('&', $queryStringParts);
     }
 }
