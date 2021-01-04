@@ -34,6 +34,7 @@ use GuzzleHttp\Client as GuzzleClient;
  * @method Response donut(string $name, string $from) :name, go and take a flying fuck at a rolling donut. - :from
  * @method Response dosomething(string $do, string $something, string $from) :do the fucking :something! - :from
  * @method Response equity(string $name, string $from) Equity only? Long hours? Zero Pay? Well :name, just sign me right the fuck up. - :from
+ * @method Response even(string $from) I can't fuckin' even. - :from
  * @method Response everyone(string $from) Everyone can go and fuck off. - :from
  * @method Response everything(string $from) Fuck everything. - :from
  * @method Response family(string $from) Fuck you, your whole family, your pets, and your feces. - :from
@@ -47,13 +48,16 @@ use GuzzleHttp\Client as GuzzleClient;
  * @method Response gfy(string $name, string $from) Golf foxtrot yankee, :name. - :from
  * @method Response give(string $from) I give zero fucks. - :from
  * @method Response greed(string $noun, string $from) The point is, ladies and gentleman, that :noun -- for lack of a better word -- is good. :noun is right. :noun works. :noun clarifies, cuts through, and captures the essence of the evolutionary spirit. :noun, in all of its forms -- :noun for life, for money, for love, knowledge -- has marked the upward surge of mankind - :from
+ * @method Response holygrail(string $from) I don't want to talk to you, no more, you empty-headed animal, food trough wiper. I fart in your general direction. Your mother was a hamster and your father smelt of elderberries. Now go away or I shall taunt you a second time. - :from
  * @method Response horse(string $from) Fuck you and the horse you rode in on. - :from
+ * @method Response idea(string $from) That sounds like a fucking great idea! - :from
  * @method Response immensity(string $from) You can not imagine the immensity of the FUCK I do not give. - :from
  * @method Response ing(string $name, string $from) Fucking fuck off, :name. - :from
  * @method Response jinglebells(string $from) Fuck you, fuck me, fuck your family. Fuck your father, fuck your mother, fuck you and me. - :from
  * @method Response keep(string $name, string $from) :name: Fuck off. And when you get there, fuck off from there too. Then fuck off some more. Keep fucking off until you get back here. Then fuck off again. - :from
  * @method Response keepcalm(string $reaction, string $from) Keep the fuck calm and :reaction! - :from
  * @method Response king(string $name, string $from) Oh fuck off, just really fuck off you total dickface. Christ :name, you are fucking thick. - :from
+ * @method Response legend(string $name, string $from) :name, you're a fucking legend. - :from
  * @method Response life(string $from) Fuck my life. - :from
  * @method Response linus(string $name, string $from) :name, there aren't enough swear-words in the English language, so now I'll have to call you perkeleen vittupää just to express my disgust and frustration with this crap. - :from
  * @method Response logs(string $from) Check your fucking logs! - :from
@@ -77,6 +81,7 @@ use GuzzleHttp\Client as GuzzleClient;
  * @method Response ratarse(string $from) I don't give a rat's arse. - :from
  * @method Response retard(string $from) You Fucktard! - :from
  * @method Response ridiculous(string $from) That's fucking ridiculous - :from
+ * @method Response rockstar(string $name, string $from) :name, you're a fucking Rock Star! - :from
  * @method Response rtfm(string $from) Read the fucking manual! - :from
  * @method Response sake(string $from) For Fuck's sake! - :from
  * @method Response shakespeare(string $name, string $from) :name, Thou clay-brained guts, thou knotty-pated fool, thou whoreson obscene greasy tallow-catch! - :from

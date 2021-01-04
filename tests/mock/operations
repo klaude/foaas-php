@@ -308,6 +308,16 @@
     ]
   },
   {
+    "name": "Even",
+    "url": "/even/:from",
+    "fields": [
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
     "name": "Everyone",
     "url": "/everyone/:from",
     "fields": [
@@ -462,8 +472,28 @@
     ]
   },
   {
+    "name": "Holygrail",
+    "url": "/holygrail/:from",
+    "fields": [
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
     "name": "Fuck you and the horse you rode in on",
     "url": "/horse/:from",
+    "fields": [
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
+    "name": "Idea",
+    "url": "/idea/:from",
     "fields": [
       {
         "name": "From",
@@ -536,6 +566,20 @@
   {
     "name": "King",
     "url": "/king/:name/:from",
+    "fields": [
+      {
+        "name": "Name",
+        "field": "name"
+      },
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
+    "name": "Legend",
+    "url": "/legend/:name/:from",
     "fields": [
       {
         "name": "Name",
@@ -811,6 +855,20 @@
     "name": "That's fucking ridiculous",
     "url": "/ridiculous/:from",
     "fields": [
+      {
+        "name": "From",
+        "field": "from"
+      }
+    ]
+  },
+  {
+    "name": "Rockstar",
+    "url": "/rockstar/:name/:from",
+    "fields": [
+      {
+        "name": "Name",
+        "field": "name"
+      },
       {
         "name": "From",
         "field": "from"
