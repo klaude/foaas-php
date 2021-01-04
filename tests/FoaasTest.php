@@ -7,10 +7,10 @@ use Foaas\Foaas;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
-class FoaasTest extends PHPUnit_Framework_TestCase
+class FoaasTest extends TestCase
 {
     /** @var string */
     protected $mockPath;
@@ -18,7 +18,7 @@ class FoaasTest extends PHPUnit_Framework_TestCase
     /** @var \GuzzleHttp\Handler\MockHandler */
     protected $mockHandler;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->mockPath = __DIR__ . '/mock';
 
@@ -52,27 +52,31 @@ class FoaasTest extends PHPUnit_Framework_TestCase
 
     public function testHowDoIHoldAllTheseArguments()
     {
-        $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
+        $this->expectException(FoaasException::class);
+        $this->expectExceptionMessage('Too many arguments!');
 
-        $this->setExpectedException(FoaasException::class, 'Too many arguments!');
+        $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
         $foaas->off('too', 'many', 'arguments');
     }
 
     public function testItBlowsUpWhenThereArentAnyCallFields()
     {
-        $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
+        $this->expectException(FoaasException::class);
+        $this->expectExceptionMessage('Missing the arguments: name, from');
 
-        $this->setExpectedException(FoaasException::class, 'Missing the arguments: name, from');
+        $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
         $foaas->off();
     }
 
     public function testCanCheckForAFuckingFoaasProblem()
     {
+        $this->expectException(FoaasException::class);
+        $this->expectExceptionMessage('Oh fuck.');
+
+
         // HTML responses generate an exception, as Foaas\Foaas expects JSON.
         $this->mockHandler->append(new Response(200, [], file_get_contents("{$this->mockPath}/__not-json")));
         $foaas = new Foaas(['handler' => HandlerStack::create($this->mockHandler)]);
-
-        $this->setExpectedException(FoaasException::class, 'Oh fuck.');
         $foaas->__call('clowns', ['from']);
     }
 

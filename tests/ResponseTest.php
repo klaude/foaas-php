@@ -3,9 +3,9 @@
 namespace Foaas\Tests;
 
 use Foaas\Response;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ResponseTest extends PHPUnit_Framework_TestCase
+class ResponseTest extends TestCase
 {
     public function testCanInstantiateAFuckingResponse()
     {
